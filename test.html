@@ -1,0 +1,196 @@
+<!-- <!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> 
+    
+    <title>Auto Scroll Horizontally with Responsive Layout</title> 
+
+    <style> 
+        .container { 
+            width: 100%; 
+            overflow-x: auto; 
+            white-space: nowrap; 
+            font-size: 0; /* Remove whitespace between inline-block elements */
+            /* Hide scrollbar */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+            ::-webkit-scrollbar {
+                display: none; /* WebKit */
+            }
+        } 
+        .container2 { 
+            width: 100%; 
+            overflow-x: auto; 
+            white-space: nowrap; 
+            font-size: 0; /* Remove whitespace between inline-block elements */
+            /* Hide scrollbar */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+            ::-webkit-scrollbar {
+                display: none; /* WebKit */
+            }
+        } 
+
+        .item { 
+            display: inline-block; 
+            width: 200px; 
+            height: 100px; 
+            margin: 10px; 
+            background-color: #0f9d58; 
+            color: #fff; 
+            text-align: center; 
+            line-height: 100px; 
+            font-size: 16px; 
+        } 
+
+        .item2 { 
+            display: inline-block; 
+            width: 300px; 
+            height: 200px; 
+            margin: 10px; 
+            background-color: #0f4a9d; 
+            color: #fff; 
+            text-align: center; 
+            line-height: 100px; 
+            font-size: 16px; 
+        } 
+
+
+      
+
+        @media screen and (max-width: 480px) {
+            .item {
+                width: calc(25% - 20px); /* 4 items per row with 10px margin on both sides */
+            }
+        }
+    </style> 
+</head> 
+
+<body> 
+    <div class="container"> 
+        <div class="item">1</div> 
+        <div class="item">2</div> 
+        <div class="item">3</div> 
+        <div class="item">4</div> 
+        <div class="item">5</div> 
+        <div class="item">6</div> 
+        <div class="item">7</div> 
+        <div class="item">8</div> 
+        <div class="item">9</div> 
+        <div class="item">10</div> 
+    </div>
+    <div class="container2"> 
+        <div class="item2">1</div> 
+        <div class="item2">2</div> 
+        <div class="item2">3</div> 
+        <div class="item2">4</div> 
+        <div class="item2">5</div> 
+        <div class="item2">6</div> 
+        <div class="item2">7</div> 
+        <div class="item2">8</div> 
+        <div class="item2">9</div> 
+        <div class="item2">10</div> 
+        
+    </div> 
+
+    <script> 
+        $(document).ready(function() {
+            var container = $('.container');
+            var container2 = $('.container2'); 
+
+            // Scrolls to left with smooth return
+            function scrollToLeftCategory() { 
+                var scrollLeft = container.scrollLeft(); 
+                var nextPosition = scrollLeft + container.width(); 
+                container.animate({ 
+                    scrollLeft: nextPosition 
+                }, 2000, function() {
+                    // Animation complete, smoothly return to original position
+                    container.animate({
+                        scrollLeft: 0
+                    }, 2000);
+                }); 
+            }
+
+            function scrollToLeftCard() { 
+                var scrollLeft = container2.scrollLeft(); 
+                var nextPosition = scrollLeft + container.width() ; 
+                container2.animate({ 
+                    scrollLeft: nextPosition 
+                }, 2000, function() {
+                    // Animation complete, smoothly return to original position
+                    container2.animate({
+                        scrollLeft: 0
+                    }, 2000);
+                }); 
+            }
+
+            // Call scrollToLeft() function after 1 second (1000 milliseconds) delay
+            setTimeout(scrollToLeftCategory, 500);
+            setTimeout(scrollToLeftCard, 4000);
+        });
+    </script> 
+
+    <script> -->
+        <!-- $(document).ready(function() {
+            var container = $('.container');
+            var container2 = $('.container2');
+            var isMobileScriptApplied = false; // Flag to track if the script has been applied for mobile view
+    
+            // Function to scroll to left with smooth return
+            function scrollToLeftCategory() {
+                var scrollLeft = container.scrollLeft();
+                var nextPosition = scrollLeft + container.width();
+                container.animate({
+                    scrollLeft: nextPosition
+                }, 2000, function() {
+                    // Animation complete, smoothly return to original position
+                    container.animate({
+                        scrollLeft: 0
+                    }, 2000);
+                });
+            }
+    
+            function scrollToLeftCard() {
+                var scrollLeft = container2.scrollLeft();
+                var nextPosition = container2.children().eq(4).position().left; // Scroll to the position of the 5th child
+                container2.animate({
+                    scrollLeft: nextPosition
+                }, 4000, function() {
+                    // Animation complete, smoothly return to original position
+                    container2.animate({
+                        scrollLeft: 0
+                    }, 4000);
+                });
+            }
+    
+            // Function to check if the viewport width is within mobile range and apply the script
+            function applyScrollEffectForMobile() {
+                if ($(window).width() <= 480 && !isMobileScriptApplied) {
+                    // Call scrollToLeft() function after 1 second (1000 milliseconds) delay
+                    setTimeout(scrollToLeftCategory, 500);
+                    setTimeout(scrollToLeftCard, 4500);
+                    isMobileScriptApplied = true; // Set the flag to indicate that the script has been applied for mobile view
+                }
+            }
+    
+            // Call the function when the page loads
+            applyScrollEffectForMobile();
+    
+            // Listen for window resize event
+            $(window).resize(function() {
+                // Reapply the scroll effect when the viewport width reaches less than or equal to 480px
+                applyScrollEffectForMobile();
+            });
+        }); -->
+    <!-- </script>
+    
+    
+</body> 
+
+</html>  -->
+
